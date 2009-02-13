@@ -6,7 +6,7 @@ import datetime
 # 1. Open the punch-in file as an ical event object
 
 # 2. add dtend
-cal.vevent.add('dtstart').value = datetime.datetime.now()
+cal.vevent.add('dtend').value = datetime.datetime.now()
 
 # 3. delete the temporary file punch-in.txt
 

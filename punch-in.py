@@ -4,8 +4,8 @@
 # Here's how this script should work
 # 1. Create an ical event with dtstamp, dtstart, summary = At work, 
 # and timezone info.
-# 2. Save this half of the event in an appropriate location with the
-# name punch-in.txt
+# 2. Save this half of the event in ~/.kde/share/apps/punchclock with the
+# name punch-in.ics
 
 import datetime
 import vobject
