@@ -1,0 +1,49 @@
+Jan 26 08:17:01 hermes CRON[2496]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 26 08:17:01 hermes CRON[2496]: pam_unix(cron:session): session closed for user root
+Jan 26 09:17:01 hermes CRON[2499]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 26 09:17:01 hermes CRON[2499]: pam_unix(cron:session): session closed for user root
+Jan 26 10:10:36 hermes sshd[2502]: Did not receive identification string from 218.90.192.219
+Jan 26 10:17:01 hermes CRON[2503]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 26 10:17:01 hermes CRON[2503]: pam_unix(cron:session): session closed for user root
+Jan 26 10:34:30 hermes sshd[2506]: reverse mapping checking getaddrinfo for c-24-131-64-106.hsd1.mn.comcast.net [24.131.64.106] failed - POSSIBLE BREAK-IN ATTEMPT!
+Jan 26 10:34:32 hermes sshd[2506]: Accepted password for jrsmith3 from 24.131.64.106 port 56305 ssh2
+Jan 26 10:34:32 hermes sshd[2508]: pam_unix(sshd:session): session opened for user jrsmith3 by (uid=0)
+Jan 26 10:42:06 hermes sshd[2508]: pam_unix(sshd:session): session closed for user jrsmith3
+Jan 26 11:14:02 hermes sshd[2534]: Did not receive identification string from 90.156.208.118
+Jan 26 11:17:01 hermes CRON[2535]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 26 11:17:01 hermes CRON[2535]: pam_unix(cron:session): session closed for user root
+Jan 26 12:04:32 hermes kdm: :0[6243]: pam_unix(kdm:session): session opened for user jrsmith3 by (uid=0)
+Jan 26 12:17:01 hermes CRON[3738]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 26 12:17:01 hermes CRON[3738]: pam_unix(cron:session): session closed for user root
+Jan 26 13:17:01 hermes CRON[4773]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 26 13:17:01 hermes CRON[4773]: pam_unix(cron:session): session closed for user root
+Jan 26 14:02:55 hermes sshd[4902]: Did not receive identification string from 118.219.232.213
+Jan 26 14:17:01 hermes CRON[4951]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 26 14:17:01 hermes CRON[4951]: pam_unix(cron:session): session closed for user root
+Jan 26 14:32:03 hermes sshd[4985]: Did not receive identification string from 219.140.253.199
+Jan 26 15:17:01 hermes CRON[5083]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 26 15:17:01 hermes CRON[5083]: pam_unix(cron:session): session closed for user root
+Jan 26 15:46:49 hermes sshd[5146]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=v5418.vps.masterhost.ru  user=root
+Jan 26 15:46:51 hermes sshd[5146]: Failed password for root from 90.156.208.118 port 36677 ssh2
+Jan 26 15:46:54 hermes sshd[5148]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=v5418.vps.masterhost.ru  user=root
+Jan 26 15:46:56 hermes sshd[5148]: Failed password for root from 90.156.208.118 port 36798 ssh2
+Jan 26 15:46:58 hermes sshd[5150]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=v5418.vps.masterhost.ru  user=root
+Jan 26 15:47:00 hermes sshd[5150]: Failed password for root from 90.156.208.118 port 36905 ssh2
+Jan 26 15:47:02 hermes sshd[5152]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=v5418.vps.masterhost.ru  user=root
+Jan 26 15:47:04 hermes sshd[5152]: Failed password for root from 90.156.208.118 port 37018 ssh2
+Jan 26 15:47:10 hermes sshd[5154]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=v5418.vps.masterhost.ru  user=root
+Jan 26 15:47:12 hermes sshd[5154]: Failed password for root from 90.156.208.118 port 37167 ssh2
+Jan 26 15:47:14 hermes sshd[5156]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=v5418.vps.masterhost.ru  user=root
+Jan 26 15:47:17 hermes sshd[5156]: Failed password for root from 90.156.208.118 port 37334 ssh2
+Jan 26 15:47:18 hermes sshd[5158]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=v5418.vps.masterhost.ru  user=root
+Jan 26 15:47:20 hermes sshd[5158]: Failed password for root from 90.156.208.118 port 37444 ssh2
+Jan 26 15:47:22 hermes sshd[5160]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=v5418.vps.masterhost.ru  user=root
+Jan 26 15:47:24 hermes sshd[5160]: Failed password for root from 90.156.208.118 port 37531 ssh2
+Jan 26 16:17:01 hermes CRON[5239]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 26 16:17:01 hermes CRON[5239]: pam_unix(cron:session): session closed for user root
+Jan 26 16:19:52 hermes sshd[5248]: Did not receive identification string from 172.19.5.72
+Jan 26 17:17:01 hermes CRON[7402]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 26 17:17:01 hermes CRON[7402]: pam_unix(cron:session): session closed for user root
+Jan 26 17:53:13 hermes sshd[8594]: Did not receive identification string from 202.108.60.21
+Jan 26 18:17:01 hermes CRON[9155]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 26 18:17:01 hermes CRON[9155]: pam_unix(cron:session): session closed for user root
