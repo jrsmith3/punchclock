@@ -8,3 +8,12 @@
 # name punch-in.txt
 
 import datetime
+import vobject
+
+cal = vobject.iCalendar()
+cal.add('vevent')
+cal.vevent.add('dtstamp').value = datetime.datetime.now()
+cal.vevent.add('dtstart').value = datetime.datetime.now()
+cal.vevent.add('summary').value = "At work"
+
+print cal.serialize()
