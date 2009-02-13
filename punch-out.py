@@ -1,10 +1,10 @@
 #!/usr/bin/python
 # In this file I need to do the following:
-# 1. Open the punch-in file and create a datetime object from that
-# info.
-# 2. Grab the current datetime.
-# 3. Create an icalendar with a single event the duration of the time 
-# between punch-in and punch-out.
+# 1. Open the punch-in file as an ical event object
+# 2. add dtend
+# 3. delete the temporary file punch-in.txt
+# 4. add the event to a specified icalendar. If that icalendar doesn't
+# exist, create it.
 
 import vobject
 import datetime
