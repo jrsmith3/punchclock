@@ -7,12 +7,13 @@
 # between punch-in and punch-out.
 
 import vobject
+import datetime
 
 cal = vobject.iCalendar()
 cal.add('vevent')
 cal.vevent.add('dtstart').value = \
-	datetime.datetime(2006, 2, 16, 9, tzinfo = utc)
+	datetime.datetime(2009, 2, 12, 9)
 cal.vevent.add('dtend').value = \
-	datetime.datetime(2006, 2, 16, 18, tzinfo = utc)
+	datetime.datetime(2009, 2, 12, 18)
 
 print cal.serialize()
