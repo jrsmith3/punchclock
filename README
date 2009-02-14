@@ -1,0 +1,9 @@
+2008.02.14 14:19
+This is the prototype version of punchclock. Right now it consists of two python scripts: one records the kdm login time, the other records the kdm logout time and adds it to an icalendar file containing the history of logins and logouts.
+
+There are still some issues with these files:
+* It seems possible to completely wipe out the history file (punchclock.ics). Perhaps I should consider using a simpler text file, then parsing that file (e.g. how I have things set up with date >> /path/to/file/punchclock.txt)
+* No unit tests
+* Source needs to be cleaned up a bit, I can probably come up with better variable names.
+* All of the paths are hard-coded into the file
+* I need to add timezone info.
