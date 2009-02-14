@@ -17,6 +17,8 @@ cal.vevent.add('dtstamp').value = datetime.datetime.now()
 cal.vevent.add('dtstart').value = datetime.datetime.now()
 cal.vevent.add('summary').value = "At work"
 
-# This is the part where I save what I have as an icalendar or an ical event.
-# Instead, I'm printing it.
-print cal.serialize()
+# Open file to (over)write. 
+# !Must fix the hard-coded path.
+punchin = open('/home/jrsmith3/.kde/share/apps/punchclock/punchin.ics','w')
+punchin.write(cal.serialize())
+punchin.close()
