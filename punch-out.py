@@ -21,19 +21,19 @@ cal.vevent.add('dtend').value = datetime.datetime.now()
 # exist, create it.
 
 # Open specified icalendar
-try:
-	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','r')
-	punchtxt = punchclockfile.read()
-	punchfile.close()
+#try:
+punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','r')
+punchtxt = punchclockfile.read()
+punchfile.close()
 
-	punchclockcal = vobject.readOne(punchtxt)
-	punchclockcal.vevent_list.append(cal.vevent_list[0])
+punchclockcal = vobject.readOne(punchtxt)
+punchclockcal.vevent_list.append(cal.vevent_list[0])
 
-	# Clobber the old punchclock icalendar by writing one with the new data.
-	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
-	punchfile.write(punchclockcal.serialize())
-	punchfile.close()
-except:
-	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
-	punchfile.write(cal.serialize())
-	punchfile.close()
+# Clobber the old punchclock icalendar by writing one with the new data.
+punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
+punchfile.write(punchclockcal.serialize())
+punchfile.close()
+#except:
+#	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
+#	punchfile.write(cal.serialize())
+#	punchfile.close()
