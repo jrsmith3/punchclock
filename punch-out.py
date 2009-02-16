@@ -37,3 +37,8 @@ except:
 	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
 	punchfile.write(cal.serialize())
 	punchfile.close()
+
+# Write some data to a simple text file that can be parsed at a later date:
+punchbak = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.bak','a')
+punchbak.write("out,"+str(datetime.datetime.now())+"\n")
+punchbak.close()

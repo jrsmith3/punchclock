@@ -6,6 +6,9 @@
 # and timezone info.
 # 2. Save this half of the event in ~/.kde/share/apps/punchclock with the
 # name punch-in.ics
+# 3. Add a line to a backup data file. These scripts wind up altering the 
+# punchclock.ics file in a way that might cause some corruption. I want to make 
+# sure that I don't catastrophically lose data one day by making a backup file.
 
 import datetime
 import vobject
@@ -22,3 +25,8 @@ cal.vevent.add('summary').value = "At work"
 punchin = open('/home/jrsmith3/.kde/share/apps/punchclock/punchin.ics','w')
 punchin.write(cal.serialize())
 punchin.close()
+
+# Write some data to a simple text file that can be parsed at a later date:
+punchbak = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.bak','a')
+punchbak.write("in,"+str(datetime.datetime.now())+"\n")
+punchbak.close()
