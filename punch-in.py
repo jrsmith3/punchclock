@@ -12,12 +12,14 @@
 
 import datetime
 import vobject
+from dateutil.tz import *
+
+timenow = datetime.datetime.now(tzlocal())
 
 cal = vobject.iCalendar()
 cal.add('vevent')
-# NEED TIMEZONE INFO!!
-cal.vevent.add('dtstamp').value = datetime.datetime.now()
-cal.vevent.add('dtstart').value = datetime.datetime.now()
+cal.vevent.add('dtstamp').value = timenow
+cal.vevent.add('dtstart').value = timenow
 cal.vevent.add('summary').value = "At work"
 
 # Open file to (over)write. 

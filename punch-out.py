@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import vobject
 import datetime
+from dateutil.tz import *
 
 # In this file I need to do the following:
 # 1. Open the punch-in file and get the data as a string, then close the file.
@@ -13,7 +14,7 @@ punchin.close()
 cal = vobject.readOne(caltxt)
 
 # 2. add dtend
-cal.vevent.add('dtend').value = datetime.datetime.now()
+cal.vevent.add('dtend').value = datetime.datetime.now(tzlocal())
 
 # 3. delete the temporary file punchin.ics
 
