@@ -25,10 +25,9 @@ import pdb
 
 # Here's how the program needs to work out: Read in the login time from the previously written pickled data. Generate the logout data. Try to open the target ics file. If it doesn't exist, create a new iCalendar object. If the file does exist, open it and grab the iCalendar object. Add the new event. Write iCalendar object to file. Record login/logout data to the backup text file.
 
-pdb.set_trace()
-
 # Collect the datetime of the login event.
-punchin = open('/home/jrsmith3/.kde/share/apps/punchclock/punchin.dat','rb')
+#punchin = open('/home/jrsmith3/.kde/share/apps/punchclock/punchin.dat','rb')
+punchin = open('punchin.dat','rb')
 timein = pickle.load(punchin)
 punchin.close()
 
@@ -37,7 +36,8 @@ timeout = datetime.datetime.now(tzlocal())
 
 # Try to open the iCalendar file. If it doesn't exist, create it.
 try:
-	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','r')
+	#punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','r')
+	punchfile = open('punchclock.ics','r')
 	caltxt = punchfile.read()
 	punchfile.close()
 
@@ -54,12 +54,14 @@ cal.vevent_list[-1].add('dtend').value = timeout
 cal.vevent_list[-1].add('summary').value = "At work"
 
 # Write the iCalendar back to a file. Clobber any existing file.
-punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
+#punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
+punchfile = open('punchclock.ics','w')
 punchfile.write(cal.serialize())
 punchfile.close()
 
 # Record login/logout events in a separate text file for backup.
-punchclockbackupfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclockbackup.txt','a')
+#punchclockbackupfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclockbackup.txt','a')
+punchclockbackupfile = open('punchclockbackup.txt','a')
 punchclockbackupfile.write("in,"+str(timein)+"\n")
 punchclockbackupfile.write("out,"+str(timeout)+"\n")
 punchclockbackupfile.close()
@@ -93,44 +95,44 @@ punchclockbackupfile.close()
 
 
 
-
-# In this file I need to do the following:
-# 1. Open the punch-in file and get the data as a string, then close the file.
-# !Must fix the hard-coded path.
-punchin = open('/home/jrsmith3/.kde/share/apps/punchclock/punchin.ics','r')
-caltxt = punchin.read()
-punchin.close()
-
-# Turn that string into a vobject
-cal = vobject.readOne(caltxt)
-
-# 2. add dtend
-cal.vevent.add('dtend').value = datetime.datetime.now(tzlocal())
-
-# 3. delete the temporary file punchin.ics
-
-# 4. add the event to a specified icalendar. If that icalendar doesn't
-# exist, create it.
-
-# Open specified icalendar
-try:
-	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','r')
-	punchtxt = punchfile.read()
-	punchfile.close()
-
-	punchclockcal = vobject.readOne(punchtxt)
-	punchclockcal.vevent_list.append(cal.vevent_list[0])
-
-	# Clobber the old punchclock icalendar by writing one with the new data.
-	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
-	punchfile.write(punchclockcal.serialize())
-	punchfile.close()
-except:
-	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
-	punchfile.write(cal.serialize())
-	punchfile.close()
-
-# Write some data to a simple text file that can be parsed at a later date:
-punchbak = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.bak','a')
-punchbak.write("out,"+str(datetime.datetime.now())+"\n")
-punchbak.close()
+# 
+# # In this file I need to do the following:
+# # 1. Open the punch-in file and get the data as a string, then close the file.
+# # !Must fix the hard-coded path.
+# punchin = open('/home/jrsmith3/.kde/share/apps/punchclock/punchin.ics','r')
+# caltxt = punchin.read()
+# punchin.close()
+# 
+# # Turn that string into a vobject
+# cal = vobject.readOne(caltxt)
+# 
+# # 2. add dtend
+# cal.vevent.add('dtend').value = datetime.datetime.now(tzlocal())
+# 
+# # 3. delete the temporary file punchin.ics
+# 
+# # 4. add the event to a specified icalendar. If that icalendar doesn't
+# # exist, create it.
+# 
+# # Open specified icalendar
+# try:
+# 	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','r')
+# 	punchtxt = punchfile.read()
+# 	punchfile.close()
+# 
+# 	punchclockcal = vobject.readOne(punchtxt)
+# 	punchclockcal.vevent_list.append(cal.vevent_list[0])
+# 
+# 	# Clobber the old punchclock icalendar by writing one with the new data.
+# 	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
+# 	punchfile.write(punchclockcal.serialize())
+# 	punchfile.close()
+# except:
+# 	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
+# 	punchfile.write(cal.serialize())
+# 	punchfile.close()
+# 
+# # Write some data to a simple text file that can be parsed at a later date:
+# punchbak = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.bak','a')
+# punchbak.write("out,"+str(datetime.datetime.now())+"\n")
+# punchbak.close()
