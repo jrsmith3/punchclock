@@ -48,10 +48,10 @@ except:
 
 # Generate an iCalendar event.
 cal.add('vevent')
-cal.vevent.add('dtstamp').value = timein
-cal.vevent.add('dtstart').value = timein
-cal.vevent.add('dtend').value = timeout
-cal.vevent.add('summary').value = "At work"
+cal.vevent_list[-1].add('dtstamp').value = timein
+cal.vevent_list[-1].add('dtstart').value = timein
+cal.vevent_list[-1].add('dtend').value = timeout
+cal.vevent_list[-1].add('summary').value = "At work"
 
 # Write the iCalendar back to a file. Clobber any existing file.
 punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
@@ -93,44 +93,44 @@ punchclockbackupfile.close()
 
 
 
-# 
-# # In this file I need to do the following:
-# # 1. Open the punch-in file and get the data as a string, then close the file.
-# # !Must fix the hard-coded path.
-# punchin = open('/home/jrsmith3/.kde/share/apps/punchclock/punchin.ics','r')
-# caltxt = punchin.read()
-# punchin.close()
-# 
-# # Turn that string into a vobject
-# cal = vobject.readOne(caltxt)
-# 
-# # 2. add dtend
-# cal.vevent.add('dtend').value = datetime.datetime.now(tzlocal())
-# 
-# # 3. delete the temporary file punchin.ics
-# 
-# # 4. add the event to a specified icalendar. If that icalendar doesn't
-# # exist, create it.
-# 
-# # Open specified icalendar
-# try:
-# 	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','r')
-# 	punchtxt = punchfile.read()
-# 	punchfile.close()
-# 
-# 	punchclockcal = vobject.readOne(punchtxt)
-# 	punchclockcal.vevent_list.append(cal.vevent_list[0])
-# 
-# 	# Clobber the old punchclock icalendar by writing one with the new data.
-# 	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
-# 	punchfile.write(punchclockcal.serialize())
-# 	punchfile.close()
-# except:
-# 	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
-# 	punchfile.write(cal.serialize())
-# 	punchfile.close()
-# 
-# # Write some data to a simple text file that can be parsed at a later date:
-# punchbak = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.bak','a')
-# punchbak.write("out,"+str(datetime.datetime.now())+"\n")
-# punchbak.close()
+
+# In this file I need to do the following:
+# 1. Open the punch-in file and get the data as a string, then close the file.
+# !Must fix the hard-coded path.
+punchin = open('/home/jrsmith3/.kde/share/apps/punchclock/punchin.ics','r')
+caltxt = punchin.read()
+punchin.close()
+
+# Turn that string into a vobject
+cal = vobject.readOne(caltxt)
+
+# 2. add dtend
+cal.vevent.add('dtend').value = datetime.datetime.now(tzlocal())
+
+# 3. delete the temporary file punchin.ics
+
+# 4. add the event to a specified icalendar. If that icalendar doesn't
+# exist, create it.
+
+# Open specified icalendar
+try:
+	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','r')
+	punchtxt = punchfile.read()
+	punchfile.close()
+
+	punchclockcal = vobject.readOne(punchtxt)
+	punchclockcal.vevent_list.append(cal.vevent_list[0])
+
+	# Clobber the old punchclock icalendar by writing one with the new data.
+	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
+	punchfile.write(punchclockcal.serialize())
+	punchfile.close()
+except:
+	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
+	punchfile.write(cal.serialize())
+	punchfile.close()
+
+# Write some data to a simple text file that can be parsed at a later date:
+punchbak = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.bak','a')
+punchbak.write("out,"+str(datetime.datetime.now())+"\n")
+punchbak.close()
