@@ -26,8 +26,7 @@ import pdb
 # Here's how the program needs to work out: Read in the login time from the previously written pickled data. Generate the logout data. Try to open the target ics file. If it doesn't exist, create a new iCalendar object. If the file does exist, open it and grab the iCalendar object. Add the new event. Write iCalendar object to file. Record login/logout data to the backup text file.
 
 # Collect the datetime of the login event.
-#punchin = open('/home/jrsmith3/.kde/share/apps/punchclock/punchin.dat','rb')
-punchin = open('punchin.dat','rb')
+punchin = open('/home/jrsmith3/.kde/share/apps/punchclock/punchin.dat','rb')
 timein = pickle.load(punchin)
 punchin.close()
 
@@ -36,8 +35,7 @@ timeout = datetime.datetime.now(tzlocal())
 
 # Try to open the iCalendar file. If it doesn't exist, create it.
 try:
-	#punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','r')
-	punchfile = open('punchclock.ics','r')
+	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','r')
 	caltxt = punchfile.read()
 	punchfile.close()
 
@@ -54,14 +52,12 @@ cal.vevent_list[-1].add('dtend').value = timeout
 cal.vevent_list[-1].add('summary').value = "At work"
 
 # Write the iCalendar back to a file. Clobber any existing file.
-#punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
-punchfile = open('punchclock.ics','w')
+punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
 punchfile.write(cal.serialize())
 punchfile.close()
 
 # Record login/logout events in a separate text file for backup.
-#punchclockbackupfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclockbackup.txt','a')
-punchclockbackupfile = open('punchclockbackup.txt','a')
+punchclockbackupfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclockbackup.txt','a')
 punchclockbackupfile.write("in,"+str(timein)+"\n")
 punchclockbackupfile.write("out,"+str(timeout)+"\n")
 punchclockbackupfile.close()
