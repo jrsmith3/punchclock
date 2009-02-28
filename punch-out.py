@@ -18,23 +18,50 @@ __license__ = "GPL v3"
 
 import vobject
 import datetime
+import pickle
 from dateutil.tz import *
+
+# Here's how the program needs to work out: Read in the login time from the previously written pickled data. Generate the logout data. Try to open the target ics file. If it doesn't exist, create a new iCalendar object. If the file does exist, open it and grab the iCalendar object. Add the new event. Write iCalendar object to file. Record login/logout data to the backup text file.
+
+# Collect the datetime of the login event.
+punchin = open('/home/jrsmith3/.kde/share/apps/punchclock/punchin.dat','rb')
+timein = pickle.load(punchin)
+punchin.close()
 
 # Collect the datetime of logout.
 timeout = datetime.datetime.now(tzlocal())
 
-# Collect the datetime of the login event.
-#timein = 
+# Try to open the iCalendar file. If it doesn't exist, create it.
+try:
+	punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','r')
+	caltxt = punchfile.read()
+	punchfile.close()
+
+	# Turn that string into a vobject
+	cal = vobject.readOne(caltxt)
+except:
+	cal = vobject.iCalendar()
 
 # Generate an iCalendar event.
+cal.add('vevent')
+cal.vevent.add('dtstamp').value = timein
+cal.vevent.add('dtstart').value = timein
+cal.vevent.add('dtend').value = timeout
+cal.vevent.add('summary').value = "At work"
 
-# Add to the existing ics file.
+# Write the iCalendar back to a file. Clobber any existing file.
+punchfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclock.ics','w')
+punchfile.write(cal.serialize())
+punchfile.close()
 
 # Record login/logout events in a separate text file for backup.
 punchclockbackupfile = open('/home/jrsmith3/.kde/share/apps/punchclock/punchclockbackup.txt','a')
 punchclockbackupfile.write("in,"+str(timein)+"\n")
 punchclockbackupfile.write("out,"+str(timeout)+"\n")
 punchclockbackupfile.close()
+
+
+
 
 
 # ========= vvv Old code from punch-in.py vvv =================================

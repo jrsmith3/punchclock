@@ -16,5 +16,6 @@ FILES:
 All files are located in the user's .kde directory (~/.kde)
 ~/.kde/share/apps/punchclock/punchclock.dat: raw data from login/logout events.
 ~/.kde/share/apps/punchclock/punchclock.ics: iCalendar formatted data from login/logout events.
+~/.kde/share/apps/punchclock/punchin.dat: Temporary file storing the punch-in datetime object.
 ~/.kde/Autostart/punchin.py: Punch-in script.
 ~/.kde/shutdown/punchout.py: Punch-out script.

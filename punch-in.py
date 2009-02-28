@@ -13,11 +13,12 @@ __copyright__ = "Copyright (c) 2009 Joshua Ryan Smith"
 __license__ = "GPL v3"
 
 import datetime
+import pickle
 from dateutil.tz import *
 
-timein = datetime.datetime.now(tzlocal()) + "\n"
+timein = datetime.datetime.now(tzlocal())
 
 # Write current datetime to a temporary file using pickle.
 punchin = open('/home/jrsmith3/.kde/share/apps/punchclock/punchin.dat','w')
-punchin.write(timein)
+pickle.dump(timein,punchin,2)
 punchin.close()
