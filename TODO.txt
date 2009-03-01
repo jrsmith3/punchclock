@@ -1,8 +1,8 @@
 2009.02.27:
-* Write unit tests
-* Fix absolute paths for ics, dat, txt files, etc.
-+ Clean up punch-out.py
+o Write unit tests
+o Fix absolute paths for ics, dat, txt files, etc.
+x Clean up punch-out.py
 
 2009.02.28
-* Generate install scripts.
-* Think about what happens the first time this program runs. The folder ~/.kde/share/apps/punchclock probably doesn't exist.
+o Generate install scripts.
+o Think about what happens the first time this program runs. The folder ~/.kde/share/apps/punchclock probably doesn't exist.
