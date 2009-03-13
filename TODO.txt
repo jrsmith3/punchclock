@@ -1,3 +1,6 @@
+2009.03.13:
+* Put length of workday in the SUMMARY or DESCRIPTION field of the ical event.
+
 2009.02.27:
 o Write unit tests
 o Fix absolute paths for ics, dat, txt files, etc.
